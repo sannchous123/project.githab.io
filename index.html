@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT-Service | Комплексное IT-обслуживание в Краснодаре</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">IT<span>Service</span></a>
+            
+            <!-- Десктопное меню -->
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#support" class="nav-link">Поддержка</a></li>
+                
+                <li class="nav-item">
+                    <a href="#administration" class="nav-link">Администрирование <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#migration">Миграция</a></li>
+                        <li><a href="#backups">Бэкапы</a></li>
+                        <li><a href="#security">Аудит Безопасности</a></li>
+                        <li><a href="#optimization">Оптимизация Скорости</a></li>
+                        <li><a href="#https">Переезд на HTTPS</a></li>
+                    </ul>
+                </li>
+                
+                <li class="nav-item"><a href="#promotion" class="nav-link">Продвижение</a></li>
+                <li class="nav-item"><a href="#advertising" class="nav-link">Реклама</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">О нас</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Проекты</a></li>
+                <li class="nav-item"><a href="#contacts" class="nav-link">Контакты</a></li>
+            </ul>
+            
+            <!-- Кнопка мобильного меню -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav">
+            <li class="mobile-nav-item"><a href="#support" class="mobile-nav-link">Поддержка</a></li>
+            
+            <li class="mobile-nav-item">
+                <button class="mobile-dropdown-btn">
+                    Администрирование <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-dropdown-menu">
+                    <li><a href="#migration">Миграция</a></li>
+                    <li><a href="#backups">Бэкапы</a></li>
+                    <li><a href="#security">Аудит Безопасности</a></li>
+                    <li><a href="#optimization">Оптимизация Скорости</a></li>
+                    <li><a href="#https">Переезд на HTTPS</a></li>
+                </ul>
+            </li>
+            
+            <li class="mobile-nav-item"><a href="#promotion" class="mobile-nav-link">Продвижение</a></li>
+            <li class="mobile-nav-item"><a href="#advertising" class="mobile-nav-link">Реклама</a></li>
+            <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">О нас</a></li>
+            <li class="mobile-nav-item"><a href="#projects" class="mobile-nav-link">Проекты</a></li>
+            <li class="mobile-nav-item"><a href="#contacts" class="mobile-nav-link">Контакты</a></li>
+        </ul>
+    </div>
+
+    <!-- Оверлей для мобильного меню -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Герой секция с визуальной иллюстрацией -->
+   <header class="hero" id="home">
+    <!-- Добавленный видео-фон -->
+    <div class="hero-video-container">
+        <video autoplay muted loop playsinline class="hero-video-bg">
+            <source src="video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+    
+    <div class="container">
+        <div class="hero-content">
+            <h1>Комплексное IT-обслуживание для вашего бизнеса</h1>
+            <p>Профессиональная поддержка, администрирование и продвижение сайтов в Краснодаре</p>
+            <a href="#contact-form" class="btn">Оставить заявку</a>
+        </div>
+        <div class="hero-visual">
+            <div class="visual-item">
+                <i class="fas fa-headset"></i>
+                <span>Круглосуточная поддержка</span>
+            </div>
+            <div class="visual-item">
+                <i class="fas fa-server"></i>
+                <span>Надежное администрирование</span>
+            </div>
+            <div class="visual-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Эффективное продвижение</span>
+            </div>
+            <div class="visual-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Гарантия безопасности</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Секция Поддержки -->
+    <section id="support" class="support">
+        <div class="container">
+            <h2><span class="section-icon">🛠️</span> Техническая поддержка</h2>
+            <p class="section-subtitle">Наши преимущества перед конкурентами</p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Круглосуточная работа</h3>
+                    <p>Мы доступны 24/7 для решения ваших проблем. Среднее время реакции - 15 минут.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Персональный менеджер</h3>
+                    <p>Каждому клиенту выделяется персональный менеджер, который знает все особенности вашего проекта.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Детальная отчетность</h3>
+                    <p>Ежемесячные отчеты о проделанной работе, аналитика и рекомендации по улучшению.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Комплексный подход</h3>
+                    <p>Не просто исправляем ошибки, а анализируем причины и предлагаем решения для предотвращения.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция опыта работы -->
+    <section class="experience">
+        <div class="container">
+            <h2><span class="section-icon">📈</span> Наш опыт работы</h2>
+            
+            <div class="experience-content">
+                <div class="experience-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-text">лет на рынке</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-text">успешных проектов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-text">техподдержка</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-text">довольных клиентов</div>
+                    </div>
+                </div>
+                
+                <div class="experience-text">
+                    <h3>Почему выбирают нас?</h3>
+                    <p>За 8 лет работы мы накопили уникальный опыт в обслуживании IT-инфраструктуры компаний различного масштаба.</p>
+                    <p>Наша команда постоянно обучается и внедряет новые технологии, чтобы предлагать клиентам самые современные решения.</p>
+                    <p>Мы не просто выполняем задачи, а становимся технологическими партнерами для вашего бизнеса.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция тарифов -->
+    <section class="tariffs">
+        <div class="container">
+            <h2><span class="section-icon">💰</span> Тарифы</h2>
+            <p class="section-subtitle">Выберите подходящий план для вашего бизнеса</p>
+            
+            <div class="tariff-cards">
+                <!-- Стартовый тариф -->
+                <div class="tariff-card">
+                    <div class="tariff-header">
+                        <h3>Стартовый</h3>
+                        <div class="tariff-price">от 15 000 ₽<span>/месяц</span></div>
+                    </div>
+                    <ul class="tariff-features">
+                        <li><i class="fas fa-check"></i> Мониторинг сайта 24/7</li>
+                        <li><i class="fas fa-check"></i> Техподдержка в рабочее время</li>
+                        <li><i class="fas fa-check"></i> Резервное копирование раз в неделю</li>
+                        <li><i class="fas fa-check"></i> Обновление CMS и плагинов</li>
+                        <li><i class="fas fa-check"></i> Консультации по оптимизации</li>
+                    </ul>
+                    <a href="#contact-form" class="btn tariff-btn">Свяжитесь с нами</a>
+                </div>
+                
+                <!-- Бизнес тариф -->
+                <div class="tariff-card popular">
+                    <div class="popular-badge">Популярный</div>
+                    <div class="tariff-header">
+                        <h3>Бизнес</h3>
+                        <div class="tariff-price">от 35 000 ₽<span>/месяц</span></div>
+                    </div>
+                    <ul class="tariff-features">
+                        <li><i class="fas fa-check"></i> Всё из тарифа Стартовый</li>
+                        <li><i class="fas fa-check"></i> Круглосуточная поддержка</li>
+                        <li><i class="fas fa-check"></i> Ежедневные бэкапы</li>
+                        <li><i class="fas fa-check"></i> SEO-оптимизация</li>
+                        <li><i class="fas fa-check"></i> Аудит безопасности</li>
+                        <li><i class="fas fa-check"></i> Ускорение загрузки сайта</li>
+                        <li><i class="fas fa-check"></i> Еженедельные отчеты</li>
+                    </ul>
+                    <a href="#contact-form" class="btn tariff-btn">Свяжитесь с нами</a>
+                </div>
+                
+                <!-- VIP тариф -->
+                <div class="tariff-card">
+                    <div class="tariff-header">
+                        <h3>VIP</h3>
+                        <div class="tariff-price">от 70 000 ₽<span>/месяц</span></div>
+                    </div>
+                    <ul class="tariff-features">
+                        <li><i class="fas fa-check"></i> Всё из тарифа Бизнес</li>
+                        <li><i class="fas fa-check"></i> Выделенный инженер</li>
+                        <li><i class="fas fa-check"></i> Индивидуальная разработка</li>
+                        <li><i class="fas fa-check"></i> Продвижение в соцсетях</li>
+                        <li><i class="fas fa-check"></i> Контекстная реклама</li>
+                        <li><i class="fas fa-check"></i> Приоритетная поддержка</li>
+                        <li><i class="fas fa-check"></i> Ежедневные созвоны</li>
+                    </ul>
+                    <a href="#contact-form" class="btn tariff-btn">Свяжитесь с нами</a>
+                </div>
+            </div>
+            
+            <!-- Индивидуальный тариф -->
+            <div class="custom-tariff">
+                <h3>Индивидуальный тариф</h3>
+                <p>Не нашли подходящий вариант? Мы готовы разработать индивидуальное предложение с учетом особенностей вашего бизнеса.</p>
+                <a href="#contact-form" class="btn">Обсудить индивидуальный тариф</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция команды -->
+    <section class="team">
+        <div class="container">
+            <h2><span class="section-icon"></span> Наша команда</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <img src="photo_2025-12-19_18-06-13.jpg" alt="Александр Чилингаров">
+                    </div>
+                    <h3>Алексей Петров</h3>
+                    <p class="member-position">Я</p>
+                    
+                </div>
+                
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция кейсов с отзывами -->
+    <section class="cases">
+        <div class="container">
+            <h2><span class="section-icon"></span> Последние кейсы</h2>
+            
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-header">
+                        <h3>Интернет-магазин электроники</h3>
+                        <div class="case-category">Поддержка + Продвижение</div>
+                    </div>
+                    <p class="case-description">Увеличение скорости загрузки сайта на 70%, переход на HTTPS, настройка резервного копирования.</p>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-number">+40%</div>
+                            <div class="result-text">конверсии</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">2.3 с</div>
+                            <div class="result-text">скорость загрузки</div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Благодаря команде ITService наш сайт работает как часы, а продажи выросли на 40% за полгода."</p>
+                        <div class="testimonial-author">
+                            <strong>Сергей Волков</strong>
+                            <span>директор ElectroShop</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-card">
+                    <div class="case-header">
+                        <h3>Корпоративный портал</h3>
+                        <div class="case-category">Администрирование + Безопасность</div>
+                    </div>
+                    <p class="case-description">Полный аудит безопасности, миграция на новый сервер, настройка мониторинга.</p>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-number">100%</div>
+                            <div class="result-text">uptime</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">0</div>
+                            <div class="result-text">инцидентов за год</div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Профессионалы высочайшего уровня. Наш портал работает без сбоев уже более года."</p>
+                        <div class="testimonial-author">
+                            <strong>Анна Смирнова</strong>
+                            <span>IT-директор FinCorp</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция клиентов -->
+    <section class="clients">
+        <div class="container">
+            <h2><span class="section-icon">🤝</span> С нами работают</h2>
+            
+            <div class="clients-logos">
+                <div class="client-logo">FinCorp</div>
+                <div class="client-logo">ElectroShop</div>
+                <div class="client-logo">MedService</div>
+                <div class="client-logo">BuildMaster</div>
+                <div class="client-logo">EduCenter</div>
+                <div class="client-logo">AutoPrime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2><span class="section-icon">❓</span> Часто задаваемые вопросы</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Как быстро вы реагируете на проблемы?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Среднее время реакции на критичные проблемы - 15 минут. На менее срочные вопросы мы отвечаем в течение 1 часа в рабочее время.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Можно ли изменить тариф в процессе работы?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, вы можете изменить тариф в любое время. Переход на более высокий тариф происходит сразу, на более низкий - с начала следующего расчетного периода.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Работаете ли вы с сайтами на иностранных хостингах?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, мы работаем с сайтами на любых хостингах по всему миру. Главное - чтобы у нас были необходимые доступы для работы.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Предоставляете ли вы отчеты о проделанной работе?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Да, мы предоставляем ежемесячные отчеты по всем тарифам. В отчетах указывается список выполненных работ, статистика uptime, рекомендации по улучшению.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция контактов и формы -->
+    <section id="contact-form" class="contact-section">
+        <div class="container">
+            <h2><span class="section-icon">📞</span> Свяжитесь с нами</h2>
+            
+            <div class="contact-wrapper">
+                <!-- Контактная информация -->
+                <div class="contact-info">
+                    <h3>Контактные данные</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Адрес офиса</h4>
+                            <p>г. Краснодар, ул. Красная, 100</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Телефон</h4>
+                            <p>+7 (861) 123-45-67</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@itservice-krd.ru</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Режим работы</h4>
+                            <p>Пн-Пт: 9:00 - 18:00</p>
+                            <p>Техподдержка: 24/7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Форма заявки -->
+                <form class="contact-form" id="contactForm">
+                    <h3>Оставить заявку</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Компания</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Услуга *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Выберите услугу</option>
+                            <option value="support">Техническая поддержка</option>
+                            <option value="administration">Администрирование</option>
+                            <option value="promotion">Продвижение</option>
+                            <option value="advertising">Реклама</option>
+                            <option value="consultation">Консультация</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Опишите вашу задачу..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn submit-btn">Отправить заявку</button>
+                    
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">IT<span>Service</span></a>
+                    <p>Комплексное IT-обслуживание в Краснодаре</p>
+                </div>
+                
+                <div class="footer-info">
+                    <p>ООО "ИТ-Сервис"</p>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Краснодар, ул. Красная, 100</p>
+                    <p><i class="fas fa-phone"></i> +7 (861) 123-45-67</p>
+                    <p>ИНН: 1234567890 | ОГРН: 1234567890123</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Быстрые ссылки</h4>
+                    <a href="#support">Поддержка</a>
+                    <a href="#administration">Администрирование</a>
+                    <a href="#about">О нас</a>
+                    <a href="#contact-form">Контакты</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 IT-Service. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
