@@ -248,3 +248,190 @@ if (heroVideo) {
         });
     });
 });
+
+// IT-Слайдер
+class ITSlider {
+    constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.thumbnails = document.querySelectorAll('.thumbnail');
+        this.dots = document.querySelectorAll('.dot');
+        this.prevBtn = document.querySelector('.slider-prev');
+        this.nextBtn = document.querySelector('.slider-next');
+        this.currentSlide = 0;
+        this.slideInterval = null;
+        this.autoPlayDelay = 5000; // 5 секунд
+        
+        this.init();
+    }
+    
+    init() {
+        // Инициализация первого слайда
+        this.showSlide(this.currentSlide);
+        
+        // События для кнопок
+        this.prevBtn.addEventListener('click', () => this.prevSlide());
+        this.nextBtn.addEventListener('click', () => this.nextSlide());
+        
+        // События для миниатюр
+        this.thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', (e) => {
+                const slideIndex = parseInt(e.currentTarget.dataset.slide);
+                this.showSlide(slideIndex);
+            });
+        });
+        
+        // События для точек
+        this.dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                const slideIndex = parseInt(e.currentTarget.dataset.slide);
+                this.showSlide(slideIndex);
+            });
+        });
+        
+        // Автопрокрутка
+        this.startAutoPlay();
+        
+        // Пауза при наведении
+        const sliderContainer = document.querySelector('.slider-container');
+        sliderContainer.addEventListener('mouseenter', () => this.stopAutoPlay());
+        sliderContainer.addEventListener('mouseleave', () => this.startAutoPlay());
+        
+        // Обработка клавиатуры
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') this.prevSlide();
+            if (e.key === 'ArrowRight') this.nextSlide();
+        });
+        
+        // Свайпы для мобильных устройств
+        this.initTouchEvents();
+    }
+    
+    showSlide(index) {
+        // Проверка границ
+        if (index >= this.slides.length) index = 0;
+        if (index < 0) index = this.slides.length - 1;
+        
+        // Скрываем все слайды
+        this.slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        // Обновляем активные элементы
+        this.thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        this.dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Показываем текущий слайд
+        this.slides[index].classList.add('active');
+        this.thumbnails[index].classList.add('active');
+        this.dots[index].classList.add('active');
+        
+        // Обновляем текущий индекс
+        this.currentSlide = index;
+        
+        // Прокручиваем миниатюры к активной
+        this.scrollToThumbnail(index);
+        
+        // Сбрасываем автопрокрутку
+        this.resetAutoPlay();
+    }
+    
+    nextSlide() {
+        this.showSlide(this.currentSlide + 1);
+    }
+    
+    prevSlide() {
+        this.showSlide(this.currentSlide - 1);
+    }
+    
+    scrollToThumbnail(index) {
+        const thumbnailsContainer = document.querySelector('.thumbnails');
+        const activeThumb = this.thumbnails[index];
+        
+        if (activeThumb) {
+            const containerWidth = thumbnailsContainer.offsetWidth;
+            const thumbWidth = activeThumb.offsetWidth;
+            const thumbLeft = activeThumb.offsetLeft;
+            
+            thumbnailsContainer.scrollTo({
+                left: thumbLeft - (containerWidth / 2) + (thumbWidth / 2),
+                behavior: 'smooth'
+            });
+        }
+    }
+    
+    startAutoPlay() {
+        this.slideInterval = setInterval(() => {
+            this.nextSlide();
+        }, this.autoPlayDelay);
+    }
+    
+    stopAutoPlay() {
+        if (this.slideInterval) {
+            clearInterval(this.slideInterval);
+            this.slideInterval = null;
+        }
+    }
+    
+    resetAutoPlay() {
+        this.stopAutoPlay();
+        this.startAutoPlay();
+    }
+    
+    initTouchEvents() {
+        const slider = document.querySelector('.main-slider');
+        let startX = 0;
+        let endX = 0;
+        
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        slider.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            this.handleSwipe(startX, endX);
+        });
+        
+        // Для мыши
+        slider.addEventListener('mousedown', (e) => {
+            startX = e.clientX;
+            document.addEventListener('mouseup', handleMouseUp);
+        });
+        
+        const handleMouseUp = (e) => {
+            endX = e.clientX;
+            this.handleSwipe(startX, endX);
+            document.removeEventListener('mouseup', handleMouseUp);
+        };
+    }
+    
+    handleSwipe(startX, endX) {
+        const threshold = 50; // Минимальное расстояние для свайпа
+        
+        if (startX - endX > threshold) {
+            this.nextSlide(); // Свайп влево
+        } else if (endX - startX > threshold) {
+            this.prevSlide(); // Свайп вправо
+        }
+    }
+}
+
+// Инициализация слайдера после загрузки DOM
+document.addEventListener('DOMContentLoaded', () => {
+    const itSlider = new ITSlider();
+    
+    // Добавляем ленивую загрузку для изображений
+    const lazyImages = document.querySelectorAll('.slide-image img, .thumbnail img');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src || img.src;
+                img.classList.add('loaded');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
+});
